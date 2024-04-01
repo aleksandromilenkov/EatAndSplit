@@ -5,11 +5,17 @@ const Friend = ({ friend }) => {
   const [friends, setFriends, selectedFriend, setSelectedFriend] =
     useContext(ItemsContext);
   let message =
-    friend.balance === 0
-      ? `You are even with ${friend.name}`
-      : friend.balance < 0
-      ? `You owe ${friend.name} ${Math.abs(friend.balance)}$`
-      : `${friend.name} owes you ${Math.abs(friend.balance)} $`;
+    friend.balance === 0 ? (
+      <p>You and {friend.name} are even</p>
+    ) : friend.balance < 0 ? (
+      <p className="red">
+        You owe {friend.name} {Math.abs(friend.balance)}€
+      </p>
+    ) : (
+      <p className="green">
+        {friend.name} owes you {Math.abs(friend.balance)}€
+      </p>
+    );
   return (
     <li>
       <img src={`${friend.image}`} alt={`${friend.name}`} />
