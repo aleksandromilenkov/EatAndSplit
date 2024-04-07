@@ -62,7 +62,7 @@ const App = () => {
             </button>
           )}
         </div>
-        {selectedFriend && <FormSplitABill />}
+        {selectedFriend && <FormSplitABill key={selectedFriend.id} />}
       </ItemsContext.Provider>
     </div>
   );
